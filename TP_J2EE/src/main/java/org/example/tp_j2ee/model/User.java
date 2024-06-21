@@ -1,17 +1,19 @@
 package org.example.tp_j2ee.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id", nullable = false)
+    private Long id;
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
 
     public User(String username, String password) {
@@ -23,11 +25,11 @@ public class User {
 
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
